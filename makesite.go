@@ -15,20 +15,20 @@ type Page struct {
 
 
 func main() {
-	inputFile := flag.String("file", "first-post.txt", ".txt file to parse into HTML")
- 	flag.Parse()
+	// inputFile := flag.String("file", "first-post.txt", ".txt file to parse into HTML")
+ 	// flag.Parse()
 
- 	outputFile := strings.Split(*inputFile, ".")[0] + ".html"
- 	fileData, _ := ioutil.ReadFile(*inputFile)
+ 	// outputFile := strings.Split(*inputFile, ".")[0] + ".html"
+ 	// fileData, _ := ioutil.ReadFile(*inputFile)
 
-	my_page := Page{MyData: string(fileData)}
+	// my_page := Page{MyData: string(fileData)}
 
-	template_parse, err := template.ParseFiles("template.tmpl")
-	html_write, _ := os.Create(outputFile)
-	err = template_parse.Execute(html_write, my_page)
-	if err != nil {
-		panic(err)
-	}
+	// template_parse, err := template.ParseFiles("template.tmpl")
+	// html_write, _ := os.Create(outputFile)
+	// err = template_parse.Execute(html_write, my_page)
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 
 	inputDir := flag.String("dir", " ", "Directory with which to parse all .txt files")
@@ -41,7 +41,7 @@ func main() {
 		for _, file := range files {
 			if !file.IsDir() {
 				fileNameSplit := strings.Split(file.Name(), ".")
-				if fileNameSplit[1] == "txt" {
+				if fileNameSplit[len(fileNameSplit) - 1] == "txt" {
 					outputName := strings.Split(file.Name(), ".")[0] + ".html"
 					fileData, _ := ioutil.ReadFile(file.Name())
 
@@ -51,13 +51,10 @@ func main() {
 					parsedTemplate, _ := template.ParseFiles("template.tmpl")
 
 					// Create a file to write to
-					newFile, _ := os.Create(outputName)
+					outputFile, _ := os.Create(outputName)
 
 					// Write to new file using template and data
-					err := parsedTemplate.Execute(newFile, myStruct)
-					if err != nil {
-						panic(err)
-					}
+					parsedTemplate.Execute(outputFile, myStruct)
 				}
 			}
 		}
