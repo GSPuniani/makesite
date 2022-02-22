@@ -1,10 +1,12 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"io/ioutil"
 	"html/template"
 	"os"
+	"flag"
+	"strings"
 )
 
 type Page struct {
@@ -13,19 +15,17 @@ type Page struct {
 
 
 func main() {
-	firstPostContents, err := ioutil.ReadFile("first-post.txt")
-	fmt.Println(string(firstPostContents))
-	my_page := Page{MyData: string(firstPostContents)}
-	fmt.Println(my_page.MyData)
-	if err != nil {
-		panic(err)
-	}
+	inputFile := flag.String("file", "first-post.txt", ".txt file to parse into HTML")
+ 	flag.Parse()
 
-	// t := template.Must(template.New("template.tmpl").ParseFiles("first-post.html"))
+ 	outputFile := strings.Split(*inputFile, ".")[0] + ".html"
+ 	fileData, _ := ioutil.ReadFile(*inputFile)
+
+	my_page := Page{MyData: string(fileData)}
+
 	template_parse, err := template.ParseFiles("template.tmpl")
-	html_write, _ := os.Create("first-post.html")
+	html_write, _ := os.Create(outputFile)
 	err = template_parse.Execute(html_write, my_page)
-	// err = t.Execute(os.Stdout, my_page)
 	if err != nil {
 		panic(err)
 	}
