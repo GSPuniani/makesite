@@ -36,7 +36,7 @@ func main() {
  	flag.Parse()
 
  	if *inputDir != " " {
-		fmt.Println("Converting all txt files in " + *inputDir + "/")
+		fmt.Println("Converting all .txt and .md files in " + *inputDir + "/ to HTML")
 		files, _ := ioutil.ReadDir(*inputDir)
 
 		for _, file := range files {
@@ -45,6 +45,7 @@ func main() {
 				outputName := strings.Split(file.Name(), ".")[0] + ".html"
 
 				if fileNameSplit[len(fileNameSplit) - 1] == "txt" {
+					fmt.Println(file.Name())
 					fileData, _ := ioutil.ReadFile(file.Name())
 					myStruct := Page{MyData: string(fileData)}
 					// Use a defined template
@@ -54,6 +55,7 @@ func main() {
 					// Write to new file using template and data
 					parsedTemplate.Execute(outputFile, myStruct)
 				} else if fileNameSplit[len(fileNameSplit) - 1] == "md" {
+					fmt.Println(file.Name())
 					fileData, _ := ioutil.ReadFile(file.Name())
 					mdFileData := string(markdown.ToHTML(fileData, nil, nil))
 					myStruct := Page{MyData: string(mdFileData)}
