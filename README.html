@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Custom SSG</title>
+</head>
+<body>
+  &lt;h1&gt;🔗 makesite&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://goreportcard.com/report/github.com/GSPuniani/makesite&#34;&gt;&lt;img src=&#34;https://goreportcard.com/badge/github.com/GSPuniani/makesite&#34; alt=&#34;Go Report Card&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Create your own custom Static Site Generator (like &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; or &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;) by cloning and fulfilling the requirements in this repo!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3&gt;📚 Table of Contents&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;#project-structure&#34;&gt;Project Structure&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#getting-started&#34;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#deliverables&#34;&gt;Deliverables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#resources&#34;&gt;Resources&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Project Structure&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;📂 makesite
+├── README.md
+├── first-post.txt
+├── latest-post.txt
+├── makesite.go
+└── template.tmpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Getting Started&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Visit &lt;a href=&#34;https://github.com/new&#34;&gt;github.com/new&lt;/a&gt; and create a new repository named &lt;code&gt;makesite&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Run each command line-by-line in your terminal to set up the project:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ git clone git@github.com:Tech-at-DU/makesite.git
+$ cd makesite
+$ git remote rm origin
+$ git remote add origin git@github.com:YOUR_GITHUB_USERNAME/makesite.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Deliverables&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;For each task&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Complete each task in the order they appear.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&#34;https://help.github.com/en/github/managing-your-work-on-github/about-task-lists&#34;&gt;GitHub Task List&lt;/a&gt; syntax to update the task list.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;MVP&lt;/h3&gt;
+
+&lt;p&gt;Complete the MVP as If you finish early, move on to the stretch challenges.&lt;/p&gt;
+
+&lt;p&gt;If you get stuck on any step, be sure to print the output to &lt;code&gt;stdout&lt;/code&gt;!&lt;/p&gt;
+
+&lt;h4&gt;v1.0 Requirements&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[x] Edit line &lt;code&gt;4&lt;/code&gt; of &lt;code&gt;README.md&lt;/code&gt;. Change this line to the following, replacing &lt;code&gt;YOUR_USERNAME&lt;/code&gt; and &lt;code&gt;YOUR_REPONAME&lt;/code&gt; with your GitHub username and repository name respectively.&lt;/li&gt;
+&lt;li&gt;[x] Read in the contents of the provided &lt;code&gt;first-post.txt&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;[x] Edit the provided HTML template (&lt;code&gt;template.tmpl&lt;/code&gt;) to display the contents of &lt;code&gt;first-post.txt&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Render the contents of &lt;code&gt;first-post.txt&lt;/code&gt; using Go Templates and print it to stdout.&lt;/li&gt;
+&lt;li&gt;[x] Write the HTML template to the filesystem to a file. Name it &lt;code&gt;first-post.html&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Manually test the generated HTML page by running &lt;code&gt;./makesite&lt;/code&gt;. Double-click the &lt;code&gt;first-post.html&lt;/code&gt; file that appears in your directory after running the command to open the generated page in your browser.&lt;/li&gt;
+&lt;li&gt;[x] &lt;strong&gt;Add, commit, and push to GitHub&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Add a new flag to your command named &lt;code&gt;file&lt;/code&gt;. This flag represents the name of any &lt;code&gt;.txt&lt;/code&gt; file in the same directory as your program. Run &lt;code&gt;./makesite --file=latest-post.txt&lt;/code&gt; to test.&lt;/li&gt;
+&lt;li&gt;[x] Update the &lt;code&gt;save&lt;/code&gt; function to use the input filename to generate a new HTML file. For example, if the input file is named &lt;code&gt;latest-post.txt&lt;/code&gt;, the generated HTML file should be named &lt;code&gt;latest-post.html&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[x] &lt;strong&gt;Add, commit, and push to GitHub&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;v1.0 Stretch Challenges&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[ ] Use Bootstrap, or another CSS framework, to enhance the style and readability of your template. &lt;em&gt;Get creative! Writing your very own website generator is a great opportunity to broadcast your style, personality, and development preferences to the world!&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;v1.1&lt;/h3&gt;
+
+&lt;h4&gt;v1.1 Requirements&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[x] Create 3 new &lt;code&gt;.txt&lt;/code&gt; files for testing in the same directory as your project.&lt;/li&gt;
+&lt;li&gt;[x] Add a new flag to the &lt;code&gt;makesite&lt;/code&gt; command named &lt;code&gt;dir&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Use the flag to find all &lt;code&gt;.txt&lt;/code&gt; files in the given directory. Print them to &lt;code&gt;stdout&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[x] With the list of &lt;code&gt;.txt&lt;/code&gt; files you found, generate an HTML page for each.&lt;/li&gt;
+&lt;li&gt;[x] Run &lt;code&gt;./makesite --dir=.&lt;/code&gt; to test in your local directory.&lt;/li&gt;
+&lt;li&gt;[x] &lt;strong&gt;Add, commit, and push to GitHub&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;v1.1 Stretch Challenges&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[ ] Recursively find all &lt;code&gt;.txt&lt;/code&gt; files in the given directory, as well as it&amp;rsquo;s subdirectories. Print them to &lt;code&gt;stdout&lt;/code&gt; to make sure. Generate an HTML page for each.&lt;/li&gt;
+&lt;li&gt;[ ] When your program finishes, print: &lt;code&gt;Success! Generated 5 pages.&lt;/code&gt; The &lt;code&gt;Success!&lt;/code&gt; substring must be &lt;span style=&#34;color: green; font-weight:bold;&#34;&gt;bold green&lt;/span&gt;, and the count (&lt;code&gt;5&lt;/code&gt;) must be &lt;strong&gt;bold&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Modify the success message to read: &lt;code&gt;Success! Generated 5 pages (18.2kB total).&lt;/code&gt; Calculate the total by summing the size of each HTML file, then converting the total to kilobytes. Always return one significant digit after the decimal point.&lt;/li&gt;
+&lt;li&gt;[ ] Determine how long it took to execute your static site generator. Modify the success message to read: &lt;code&gt;Success! Generated 5 pages (18.2kB total) in 3.25 seconds.&lt;/code&gt; Always return two significant digits after the decimal point.&lt;/li&gt;
+&lt;li&gt;[ ] Test your solutions to these stretch challenges on many different directories containing &lt;code&gt;.txt&lt;/code&gt; files. Are there any ways to make your code faster?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;v1.2&lt;/h3&gt;
+
+&lt;h4&gt;v1.2 Requirements&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[x] Initialize Go modules in your project.&lt;/li&gt;
+&lt;li&gt;[x] Add any third party library to your project to enhance it&amp;rsquo;s functionality. Some ideas you might consider include &lt;strong&gt;&lt;em&gt;(CHOOSE ONLY ONE)&lt;/em&gt;&lt;/strong&gt;:
+
+&lt;ul&gt;
+&lt;li&gt;[ ] Translating page content using Google Translate.&lt;/li&gt;
+&lt;li&gt;[x] Parse Markdown (&lt;code&gt;.md&lt;/code&gt;) files and transform them into HTML. &lt;code&gt;#&lt;/code&gt; through &lt;code&gt;######&lt;/code&gt; should translate to &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; through &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;strong&gt;&lt;em&gt;FILL IN THE BLANK&lt;/em&gt;&lt;/strong&gt;: &lt;code&gt;I will use the __________________________________ library. The documentation is located at __________________________________. My goal is to use it to __________________________________.&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;[x] &lt;strong&gt;Add, commit, and push to GitHub&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Resources&lt;/h2&gt;
+
+&lt;h3&gt;Lesson Plans&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://make-school-courses.github.io/BEW-2.5-Strongly-Typed-Ecosystems/#/Lessons/SSGProject&#34;&gt;&lt;strong&gt;BEW 2.5&lt;/strong&gt;: Project #1 - SSGs&lt;/a&gt;: Code samples you can use to complete the MVP requirements.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://make-school-courses.github.io/BEW-2.5-Strongly-Typed-Ecosystems/#/Lessons/FilesDirectories&#34;&gt;&lt;strong&gt;BEW 2.5&lt;/strong&gt;: Files &amp;amp; Directories&lt;/a&gt;: Code samples you can use to complete v1.1 requirements.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://make-school-courses.github.io/BEW-2.5-Strongly-Typed-Ecosystems/#/Lessons/3rdPartyLibs&#34;&gt;&lt;strong&gt;BEW 2.5&lt;/strong&gt;: Files &amp;amp; Directories&lt;/a&gt;: Code samples you can use to complete v1.2 requirements.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Example Code&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gobyexample.com/reading-files&#34;&gt;&lt;strong&gt;Go By Example&lt;/strong&gt;: Reading Files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gobyexample.com/writing-files&#34;&gt;&lt;strong&gt;Go By Example&lt;/strong&gt;: Writing Files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gobyexample.com/panic&#34;&gt;&lt;strong&gt;Go By Example&lt;/strong&gt;: Panic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gopheracademy.com/advent-2017/using-go-templates/&#34;&gt;&lt;strong&gt;GopherAcademy&lt;/strong&gt;: Using Go Templates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.rapid7.com/2016/08/04/build-a-simple-cli-tool-with-golang/&#34;&gt;&lt;strong&gt;rapid7.com&lt;/strong&gt;: Building a Simple CLI Tool with Golang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</body>
+</html>

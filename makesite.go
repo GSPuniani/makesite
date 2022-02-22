@@ -7,6 +7,7 @@ import (
 	"os"
 	"flag"
 	"strings"
+	"github.com/gomarkdown/markdown"
 )
 
 type Page struct {
@@ -39,20 +40,27 @@ func main() {
 		files, _ := ioutil.ReadDir(*inputDir)
 
 		for _, file := range files {
-			if !file.IsDir() {
+			if file.Mode().IsRegular() {
 				fileNameSplit := strings.Split(file.Name(), ".")
+				outputName := strings.Split(file.Name(), ".")[0] + ".html"
+
 				if fileNameSplit[len(fileNameSplit) - 1] == "txt" {
-					outputName := strings.Split(file.Name(), ".")[0] + ".html"
 					fileData, _ := ioutil.ReadFile(file.Name())
-
 					myStruct := Page{MyData: string(fileData)}
-
 					// Use a defined template
 					parsedTemplate, _ := template.ParseFiles("template.tmpl")
-
 					// Create a file to write to
 					outputFile, _ := os.Create(outputName)
-
+					// Write to new file using template and data
+					parsedTemplate.Execute(outputFile, myStruct)
+				} else if fileNameSplit[len(fileNameSplit) - 1] == "md" {
+					fileData, _ := ioutil.ReadFile(file.Name())
+					mdFileData := string(markdown.ToHTML(fileData, nil, nil))
+					myStruct := Page{MyData: string(mdFileData)}
+					// Use a defined template
+					parsedTemplate, _ := template.ParseFiles("template.tmpl")
+					// Create a file to write to
+					outputFile, _ := os.Create(outputName)
 					// Write to new file using template and data
 					parsedTemplate.Execute(outputFile, myStruct)
 				}
